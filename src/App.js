@@ -20,6 +20,9 @@ class App extends Component {
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/library" component={Library} />
+          
+          {/*Route passes the slug to the Album component. 
+          It is then accessible through props as this.props.match.params.slug in the Album component*/}
           <Route path="/album/:slug" component={Album} /> 
         </main>
       </div>
