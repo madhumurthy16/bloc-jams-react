@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 
+var styles = {
+		in: {
+			 backgroundColor: 'red'
+		}
+	};
+
 class Album extends Component {
 	constructor(props) {
 		super(props);
@@ -17,7 +23,8 @@ class Album extends Component {
 		this.state = {
 			album: album,
 			currentSong: album.songs[0],
-			isPlaying: false
+			isPlaying: false,
+			isHovered: false
 		};
 
 		//Create an audio element
@@ -59,7 +66,6 @@ class Album extends Component {
 		}
 	}
 
-		
 	render() {
 		return (
 			<section className="album">
@@ -80,7 +86,12 @@ class Album extends Component {
 					<tbody>
 						{
 							this.state.album.songs.map(( song, index ) => 
-								<tr className="song" key={index} onClick={() => this.handleSongClick(song) }>										<td>{index+1}</td>
+								<tr className="song" 
+									key={index} 
+									onClick={() => this.handleSongClick(song)}
+									onMouseEnter={() => this.setState({isHovered: index+1})}
+									onMouseLeave={() => this.setState({isHovered:true})} >
+									<td><span className="icon ion-md-play-circle"></span></td>	
 									<td>{song.title}</td>
 									<td>{song.duration} secs</td>
 								</tr>
