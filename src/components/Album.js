@@ -66,6 +66,21 @@ class Album extends Component {
 		}
 	}
 
+	playPauseButtonHandler(song, index) {
+		const play = <span className="icon ion-md-play-circle"></span>;
+		const pause = <span className="icon ion-md-pause"></span>;
+		 if(!this.state.isPlaying && this.state.isHovered === index+1 ) {
+			return play;
+		} 
+		else if(this.state.isPlaying && this.state.isHovered && this.state.currentSong === song) {
+			return pause;
+		} 
+
+		else {
+			return index+1;
+		}
+	}
+
 	render() {
 		return (
 			<section className="album">
@@ -91,7 +106,7 @@ class Album extends Component {
 									onClick={() => this.handleSongClick(song)}
 									onMouseEnter={() => this.setState({isHovered: index+1})}
 									onMouseLeave={() => this.setState({isHovered:true})} >
-									<td><span className="icon ion-md-play-circle"></span></td>	
+									<td>{this.playPauseButtonHandler(song, index)}</td>
 									<td>{song.title}</td>
 									<td>{song.duration} secs</td>
 								</tr>
