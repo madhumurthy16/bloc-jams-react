@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 
-var styles = {
-		in: {
-			 backgroundColor: 'red'
-		}
-	};
-
 class Album extends Component {
 	constructor(props) {
 		super(props);
@@ -69,16 +63,13 @@ class Album extends Component {
 	playPauseButtonHandler(song, index) {
 		const play = <span className="icon ion-md-play-circle"></span>;
 		const pause = <span className="icon ion-md-pause"></span>;
-		 if(!this.state.isPlaying && this.state.isHovered === index+1 ) {
-			return play;
-		} 
-		else if(this.state.isPlaying && this.state.isHovered && this.state.currentSong === song) {
-			return pause;
-		} 
 
-		else {
-			return index+1;
-		}
+		return (
+				(this.state.currentSong === song) ? 
+				(this.state.isPlaying ? pause: play)
+				:
+				(this.state.isHovered === index+1 ? play : index+1)
+		);
 	}
 
 	render() {
