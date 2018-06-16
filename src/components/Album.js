@@ -20,7 +20,9 @@ class Album extends Component {
 			album: album,
 			currentSong: album.songs[0],
 			isPlaying: false,
-			isHovered: false
+			isHovered: false,
+			currentTime: 0,
+			duration: album.songs[0].duration
 		};
 
 		//Create an audio element
@@ -90,6 +92,31 @@ class Album extends Component {
 		this.play();
 	}
 
+	handleTimeChange(e) {
+		const newTime = this.audioElement.duration * e.target.value;
+		this.audioElement.currentTime = newTime;
+		this.setState({currentTime: newTime});
+	}
+
+	componentDidMount() {
+		this.eventListeners = {
+			timeupdate: e => {
+				this.setState({ currentTime: this.audioElement.currentTime });
+			},
+			durationchange: e => {
+				this.setState({ duration: this.audioElement.duration });
+			}
+		};
+		this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
+		this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+	}
+
+	componentWillUnMount() {
+		this.audioElement.src = null;
+		this.audioElement.RemoveEventListener('timeupdate', this.eventListeners.timeupdate);
+		this.audioElement.RemoveEventListeners('durationchange', this.eventListeners.durationchange);
+	}
+
 	render() {
 		return (
 			<section className="album">
@@ -125,10 +152,13 @@ class Album extends Component {
 				</table>
 				<PlayerBar 
 				currentSong={this.state.currentSong} 
-				isPlaying={this.state.isPlaying} 
+				isPlaying={this.state.isPlaying}
+				currentTime={this.audioElement.currentTime}
+				duration={this.audioElement.duration}
 				handleSongClick={() => this.handleSongClick(this.state.currentSong)}
 				handlePrevClick={() => this.handlePrevClick()}
-				handleNextClick={() => this.handleNextClick()} />
+				handleNextClick={() => this.handleNextClick()} 
+				handleTimeChange={(e) => this.handleTimeChange(e)} />
 			</section>
 		);
 	}
