@@ -22,13 +22,15 @@ class Album extends Component {
 			isPlaying: false,
 			isHovered: false,
 			currentTime: 0,
-			duration: album.songs[0].duration
+			duration: album.songs[0].duration,
+			volume: 0
 		};
 
 		//Create an audio element
 		this.audioElement = document.createElement('audio');
 		//Assign the first song's src to the audio element
 		this.audioElement.src = album.songs[0].audioSrc;
+		this.audioElement.volume = 0.5;
 
 	}
 
@@ -46,6 +48,11 @@ class Album extends Component {
 	setSong(song) {
 		this.audioElement.src = song.audioSrc;
 		this.setState({ currentSong: song });
+	}
+
+	formatTime(time) {
+		var min = Math.floor(time/60);
+		return min;
 	}
 
 	// Click event handler => determines to call play(), pause() or setState() 
@@ -98,6 +105,12 @@ class Album extends Component {
 		this.setState({currentTime: newTime});
 	}
 
+	handleVolumeChange(e) {
+		const newVolume = e.target.value;
+		this.audioElement.volume = newVolume;
+		this.setState({volume: newVolume});
+	}
+
 	componentDidMount() {
 		this.eventListeners = {
 			timeupdate: e => {
@@ -105,16 +118,21 @@ class Album extends Component {
 			},
 			durationchange: e => {
 				this.setState({ duration: this.audioElement.duration });
+			},
+			volumecontrol: e => {
+				this.setState({ volume: this.audioElement.volume });
 			}
 		};
 		this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
 		this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+		this.audioElement.addEventListener('volumecontrol', this.eventListeners.volumecontrol);
 	}
 
 	componentWillUnMount() {
 		this.audioElement.src = null;
-		this.audioElement.RemoveEventListener('timeupdate', this.eventListeners.timeupdate);
-		this.audioElement.RemoveEventListeners('durationchange', this.eventListeners.durationchange);
+		this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
+		this.audioElement.removeEventListeners('durationchange', this.eventListeners.durationchange);
+		this.audioElement.removeEventListeners('volumecontrol', this.eventListeners.volumecontrol);
 	}
 
 	render() {
@@ -155,10 +173,12 @@ class Album extends Component {
 				isPlaying={this.state.isPlaying}
 				currentTime={this.audioElement.currentTime}
 				duration={this.audioElement.duration}
+				volume={this.audioElement.volume}
 				handleSongClick={() => this.handleSongClick(this.state.currentSong)}
 				handlePrevClick={() => this.handlePrevClick()}
 				handleNextClick={() => this.handleNextClick()} 
-				handleTimeChange={(e) => this.handleTimeChange(e)} />
+				handleTimeChange={(e) => this.handleTimeChange(e)} 
+				handleVolumeChange={(e) => this.handleVolumeChange(e)} />
 			</section>
 		);
 	}
