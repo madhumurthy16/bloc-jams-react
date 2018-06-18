@@ -50,9 +50,14 @@ class Album extends Component {
 		this.setState({ currentSong: song });
 	}
 
-	formatTime(time) {
-		var min = Math.floor(time/60);
-		return min;
+	formatTime(timeInSecs) {
+		if(isNaN(timeInSecs)) {
+			return "-:--";
+		}
+		var mins = Math.floor(timeInSecs/60);
+		var remainingSecs = timeInSecs % 60;
+		var totalSecs = Math.floor(remainingSecs);
+		return (totalSecs < 10 ? (mins + ":0" + totalSecs) : (mins + ":" + totalSecs));
 	}
 
 	// Click event handler => determines to call play(), pause() or setState() 
@@ -162,7 +167,7 @@ class Album extends Component {
 									onMouseLeave={() => this.setState({isHovered:true})} >
 									<td>{this.playPauseButtonHandler(song, index)}</td>
 									<td>{song.title}</td>
-									<td>{song.duration} secs</td>
+									<td>{this.formatTime(song.duration)}</td>
 								</tr>
 							)
 						}
@@ -178,7 +183,8 @@ class Album extends Component {
 				handlePrevClick={() => this.handlePrevClick()}
 				handleNextClick={() => this.handleNextClick()} 
 				handleTimeChange={(e) => this.handleTimeChange(e)} 
-				handleVolumeChange={(e) => this.handleVolumeChange(e)} />
+				handleVolumeChange={(e) => this.handleVolumeChange(e)} 
+				formatTime = { (timeInSecs) => this.formatTime(timeInSecs) }/>
 			</section>
 		);
 	}
