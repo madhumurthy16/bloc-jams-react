@@ -143,6 +143,7 @@ class Album extends Component {
 	render() {
 		return (
 			<section className="album">
+
 				<section id="album-info">
 					<img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.albumTitle} />
 					<div className="album-details">
@@ -151,6 +152,8 @@ class Album extends Component {
 						<div id="release-info">{this.state.album.releaseInfo}</div>
 					</div>
 				</section>
+				
+
 				<table id="song-list">
 					<colgroup>
 						<col id="song-number-column" />
@@ -173,6 +176,7 @@ class Album extends Component {
 						}
 					</tbody>
 				</table>
+
 				<PlayerBar 
 				currentSong={this.state.currentSong} 
 				isPlaying={this.state.isPlaying}
@@ -185,6 +189,7 @@ class Album extends Component {
 				handleTimeChange={(e) => this.handleTimeChange(e)} 
 				handleVolumeChange={(e) => this.handleVolumeChange(e)} 
 				formatTime = { (timeInSecs) => this.formatTime(timeInSecs) }/>
+
 			</section>
 		);
 	}
