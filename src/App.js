@@ -32,9 +32,11 @@ class App extends Component {
             It is then accessible through props as this.props.match.params.slug in the Album component*/}
             <Route path="/album/:slug" component={Album} /> 
           </main>
-          <hr/>
-          <footer className="container">
-            <p>© Swell Sounds 2018-2019</p>
+          
+          <footer id="footer">
+            <div className="container">
+              <p>© Swell Sounds 2018-2019</p>
+            </div>
           </footer>
 
       </div>
