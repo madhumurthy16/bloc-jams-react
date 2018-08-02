@@ -6,7 +6,7 @@ const Landing = () => (
 	<section className="landing">
 
 		<div className="card bg-dark text-white mb-5 border-0 rounded-0">
-			<img className="card-img rounded-0 img-fluid" src='/assets/images/ocean1.jpeg' alt="Ocean Swell" />
+			<img className="card-img rounded-0 img-fluid" src='/assets/images/ocean1.jpeg' alt="Ocean Swell"/>
 			<div className="card-img-overlay m-5">
 				<h1 className="card-title display-4">Turn the music up!</h1>
 				<p className="card-text lead">Anywhere Anytime</p>

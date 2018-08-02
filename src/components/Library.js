@@ -20,7 +20,7 @@ class Library extends Component {
 								this.state.albums.map((album,index) => 
 									//use a template literal to build a unique link path for each album based on a base URL, /album/ and the album's slug property
 							
-								<div className="col-md-4"  key={index}>
+								<div className="col-md-4" key={index}>
 									<div className="card mb-4 shadow-sm">
 										<Link to={`/album/${album.slug}`}> 
 											<img className="card-img-top" src={album.albumCover} alt={album.title} />
