@@ -12,13 +12,13 @@ class App extends Component {
       <div className="App">
 
           <nav className="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <a className="navbar-brand" href="#">Swell Sounds</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <Link className="navbar-brand" to='/'>Swell Sounds</Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav ml-auto">
-                  <Link className="nav-item nav-link active" to='/'>Landing<span class="sr-only">(current)</span></Link>
+                  <Link className="nav-item nav-link active" to='/'>Landing<span className="sr-only">(current)</span></Link>
                   <Link className="nav-item nav-link" to='/library'>Library</Link>
               </div>
             </div>
