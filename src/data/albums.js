@@ -29,7 +29,7 @@ export default [{
   artist: 'Pablo Picasso',
   releaseInfo: '1909 Spanish Records',
   albumCover: '/assets/images/album_covers/01.jpg',
-  slug: 'the-colors',
+  slug: 'the-colors1',
   songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
       { title: 'Green', duration: '103.96', audioSrc: '/assets/music/green.mp3' },
@@ -42,7 +42,7 @@ export default [{
     artist: 'Guglielmo Marconi',
     releaseInfo: '1909 EM',
     albumCover: '/assets/images/album_covers/02.jpg',
-    slug: 'the-telephone',
+    slug: 'the-telephone1',
     songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
       { title: 'Green', duration: '103.96', audioSrc: '/assets/music/green.mp3' },
@@ -55,7 +55,7 @@ export default [{
   artist: 'Pablo Picasso',
   releaseInfo: '1909 Spanish Records',
   albumCover: '/assets/images/album_covers/01.jpg',
-  slug: 'the-colors',
+  slug: 'the-colors2',
   songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
       { title: 'Green', duration: '103.96', audioSrc: '/assets/music/green.mp3' },
@@ -68,7 +68,7 @@ export default [{
     artist: 'Guglielmo Marconi',
     releaseInfo: '1909 EM',
     albumCover: '/assets/images/album_covers/02.jpg',
-    slug: 'the-telephone',
+    slug: 'the-telephone2',
     songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
       { title: 'Green', duration: '103.96', audioSrc: '/assets/music/green.mp3' },
