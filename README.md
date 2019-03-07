@@ -1,3 +1,6 @@
+>An interactive music player application that allows users to add albums to the library and play/pause songs from the albums.
+The single page app is built ground up using ReactJS and styled using css and Bootstrap.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
