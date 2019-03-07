@@ -5,7 +5,7 @@ class PlayerBar extends Component {
 	render() {
 		return (
 			<section className="player-bar">
-				<div className="container  py-1 bg-light rounded">
+				<div className="container  py-3 bg-light rounded">
 					<div className="row justify-content-md-center align-items-center">
 						<div className="col-md-3">
 							<section id="buttons">
@@ -20,7 +20,7 @@ class PlayerBar extends Component {
 								</button>
 							</section>
 						</div>
-						<div className="col-md-3">
+						<div className="col-md-3 m-3">
 							<section id="time-control">
 								<div className="current-time">{this.props.formatTime(this.props.currentTime)}</div>
 								<input 

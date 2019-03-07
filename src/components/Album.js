@@ -79,12 +79,13 @@ class Album extends Component {
 	playPauseButtonHandler(song, index) {
 		const play = <span className="icon ion-md-play-circle"></span>;
 		const pause = <span className="icon ion-md-pause"></span>;
+		const music = <span className="icon ion-md-musical-note"></span>
 
 		return (
 				(this.state.currentSong === song) ? 
 				(this.state.isPlaying ? pause: play)
 				:
-				(this.state.isHovered === index+1 ? play : index+1)
+				(this.state.isHovered === index+1 ? play : music)
 		);
 	}
 
@@ -144,34 +145,22 @@ class Album extends Component {
 		return (
 			<section className="album py-5">
 
-					<PlayerBar 
-					currentSong={this.state.currentSong} 
-					isPlaying={this.state.isPlaying}
-					currentTime={this.audioElement.currentTime}
-					duration={this.audioElement.duration}
-					volume={this.audioElement.volume}
-					handleSongClick={() => this.handleSongClick(this.state.currentSong)}
-					handlePrevClick={() => this.handlePrevClick()}
-					handleNextClick={() => this.handleNextClick()} 
-					handleTimeChange={(e) => this.handleTimeChange(e)} 
-					handleVolumeChange={(e) => this.handleVolumeChange(e)} 
-					formatTime = { (timeInSecs) => this.formatTime(timeInSecs) }/>
-
 				<section id="album-details">
-					<div className="container py-5">
+					<div className="container pt-2 pb-5">
 						<div className="row justify-content-start">
-							<div className="col-md-6">
+							<div className="col-md-6 mb-4">
 								<img className="fluid-image w-75" id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.albumTitle} />
 								
 							</div>
-							<div className="col-md-6 text-left">
+							<div className="col-md-6 text-md-left">
 							<div className="album-details">
 									<h1 className="h3" id="album-title">{this.state.album.title}</h1>
 									<p className="artist lead">{this.state.album.artist}</p>
 									<div id="release-info">{this.state.album.releaseInfo}</div>
+									<p>{this.state.album.songs.length} Songs</p>
 								</div>
 								<div className="table-responsive py-5">
-									<table className="table table-striped table-sm" id="song-list">
+									<table className="table table-sm table-hover" id="song-list">
 										<colgroup>
 											<col id="song-number-column" />
 											<col id="song-title-column" />
@@ -198,7 +187,18 @@ class Album extends Component {
 						</div>
 					</div>
 				</section>
-				
+				<PlayerBar 
+					currentSong={this.state.currentSong} 
+					isPlaying={this.state.isPlaying}
+					currentTime={this.audioElement.currentTime}
+					duration={this.audioElement.duration}
+					volume={this.audioElement.volume}
+					handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+					handlePrevClick={() => this.handlePrevClick()}
+					handleNextClick={() => this.handleNextClick()} 
+					handleTimeChange={(e) => this.handleTimeChange(e)} 
+					handleVolumeChange={(e) => this.handleVolumeChange(e)} 
+					formatTime = { (timeInSecs) => this.formatTime(timeInSecs) }/>
 			</section>
 		);
 	}

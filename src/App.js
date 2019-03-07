@@ -7,6 +7,20 @@ import Album from './components/Album';
 
 
 class App extends Component {
+  constructor(){
+    super();
+    this.previousLink = null;
+  }
+
+  handleClick = (e) => {
+    if(this.previousLink !== null) {
+      this.previousLink.classList.remove('active');
+    }
+    e.target.classList.add('active');
+    this.previousLink = e.target;
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,8 +32,8 @@ class App extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav ml-auto">
-                  <Link className="nav-item nav-link active" to='/'>Landing<span className="sr-only">(current)</span></Link>
-                  <Link className="nav-item nav-link" to='/library'>Library</Link>
+                  <Link className="nav-item nav-link active" to='/' onClick={(e) => this.handleClick(e)}>Landing<span className="sr-only">(current)</span></Link>
+                  <Link className="nav-item nav-link" to='/library' onClick={(e) => this.handleClick(e)}>Library</Link>
               </div>
             </div>
           </nav>
@@ -34,8 +48,8 @@ class App extends Component {
           </main>
           
           <footer id="footer">
-            <div className="container">
-              <p>© Swell Sounds 2018-2019</p>
+            <div className="container d-flex align-items-center justify-content-center">
+              <p>©Swell Sounds 2018-2019</p>
             </div>
           </footer>
 

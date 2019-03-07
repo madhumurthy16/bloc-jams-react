@@ -2,7 +2,7 @@ export default [{
   title: 'The Colors',
   artist: 'Pablo Picasso',
   releaseInfo: '1909 Spanish Records',
-  albumCover: '/assets/images/album_covers/01.jpg',
+  albumCover: '/assets/images/album_covers/girl.jpeg',
   slug: 'the-colors',
   songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
@@ -15,7 +15,7 @@ export default [{
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
     releaseInfo: '1909 EM',
-    albumCover: '/assets/images/album_covers/02.jpg',
+    albumCover: '/assets/images/album_covers/girl-splashing.jpeg',
     slug: 'the-telephone',
     songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
@@ -28,7 +28,7 @@ export default [{
   title: 'The Colors',
   artist: 'Pablo Picasso',
   releaseInfo: '1909 Spanish Records',
-  albumCover: '/assets/images/album_covers/01.jpg',
+  albumCover: '/assets/images/album_covers/bird.jpg',
   slug: 'the-colors1',
   songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
@@ -41,7 +41,7 @@ export default [{
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
     releaseInfo: '1909 EM',
-    albumCover: '/assets/images/album_covers/02.jpg',
+    albumCover: '/assets/images/album_covers/poppy.jpeg',
     slug: 'the-telephone1',
     songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
@@ -54,7 +54,7 @@ export default [{
   title: 'The Colors',
   artist: 'Pablo Picasso',
   releaseInfo: '1909 Spanish Records',
-  albumCover: '/assets/images/album_covers/01.jpg',
+  albumCover: '/assets/images/album_covers/03.jpg',
   slug: 'the-colors2',
   songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },
@@ -67,7 +67,7 @@ export default [{
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
     releaseInfo: '1909 EM',
-    albumCover: '/assets/images/album_covers/02.jpg',
+    albumCover: '/assets/images/album_covers/ocean.jpeg',
     slug: 'the-telephone2',
     songs: [
       { title: 'Blue', duration: '161.71', audioSrc: '/assets/music/blue.mp3' },

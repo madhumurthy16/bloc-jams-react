@@ -1,0 +1,40 @@
+.hero-title {
+	font-size: 2.5rem;
+}
+
+@media (min-width: 576px) {
+	.hero-title {
+  	font-size: 3.3rem;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+  	font-size: 3.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-title {
+  	font-size: 4.1rem;
+  }
+}
+
+@media (min-width: 1200px){
+  .hero-title {
+  	font-size: 4.5rem;
+  }
+}
+
+.selling-points .card-deck .card .card-title{
+	color: #348b82;
+	font-weight: 400;
+}
+				
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .card-deck .card .card-title {
+  	font-size: 1.2rem;
+  }
+}
